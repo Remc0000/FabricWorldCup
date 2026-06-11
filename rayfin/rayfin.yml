@@ -1,7 +1,7 @@
 id: worldcup-pool
 name: World Cup 2026 Pool
 version: 1.0.0
-workspace: "World Cup 2026"
+workspace: World Cup 2026
 services:
   auth:
     enabled: true
@@ -9,6 +9,7 @@ services:
       enabled: true
     allowedRedirectUris:
       - http://localhost:5173
+      - https://witty-larch-cc4b20675e-westcentralus.webapp.msit.fabricapps.net
   data:
     enabled: true
     dialect: mssql
@@ -21,4 +22,3 @@ services:
     indexDocument: index.html
   functions:
     enabled: false
-

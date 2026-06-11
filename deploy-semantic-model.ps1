@@ -5,8 +5,8 @@
 # Usage: .\deploy-semantic-model.ps1
 
 param(
-    [string]$WorkspaceId = "7b04c3bb-d185-4d5a-a448-12ed424734e4",
-    [string]$SemanticModelId = "e4e4806c-8669-4381-809a-32962d15e347"
+    [string]$WorkspaceId = "ef5b019a-be38-4a30-923f-852061ab38e4",
+    [string]$SemanticModelId = "8b5e8fa1-593b-4cd6-a142-f43ce966a911"
 )
 
 $ErrorActionPreference = "Stop"
