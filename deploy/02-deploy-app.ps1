@@ -37,7 +37,7 @@ try {
 
 # Deploy
 Write-Host "  🏗️  Running rayfin up (this builds and deploys the app)..."
-$result = rayfin up --yes 2>&1
+$result = rayfin up --workspace $WorkspaceName --yes 2>&1
 Pop-Location
 
 $result | ForEach-Object { Write-Host "    $_" }
