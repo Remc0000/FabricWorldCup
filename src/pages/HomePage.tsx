@@ -158,7 +158,7 @@ export function HomePage() {
           <div className="flex items-center gap-3">
             <span className="text-2xl">⚽</span>
             <div>
-              <h1 className="text-lg font-bold">World Cup 2026 Pool</h1>
+              <h1 className="text-lg font-bold">World Cup 2026 Prediction</h1>
               <p className="text-xs text-blue-200">Match Prediction App</p>
             </div>
           </div>

@@ -30,6 +30,26 @@ Write-Host "  ✅ Config loaded (workspace: $FABRIC_WORKSPACE_NAME)"
 Write-Host ""
 . (Join-Path $root "deploy\01-prerequisites.ps1")
 
+# Verify az login
+Write-Host ""
+Write-Host "  🔐 Checking az login..." -ForegroundColor Yellow
+$azAccount = az account show 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "  ❌ Not logged in to Azure CLI. Please run: az login" -ForegroundColor Red
+    exit 1
+}
+$azUser = (az account show --query "user.name" -o tsv 2>&1)
+Write-Host "  ✅ Logged in as: $azUser" -ForegroundColor Green
+
+# Verify rayfin login
+Write-Host "  🔐 Checking rayfin login..." -ForegroundColor Yellow
+$rayfinWhoami = rayfin whoami 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "  ❌ Not logged in to Rayfin. Please run: rayfin login" -ForegroundColor Red
+    exit 1
+}
+Write-Host "  ✅ Rayfin: $rayfinWhoami" -ForegroundColor Green
+
 # Step 2: Deploy app
 Write-Host ""
 . (Join-Path $root "deploy\02-deploy-app.ps1") -WorkspaceName $FABRIC_WORKSPACE_NAME

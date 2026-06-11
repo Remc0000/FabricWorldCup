@@ -78,7 +78,7 @@ export function AdminPage() {
       <header className="bg-[#003DA5] text-white px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className="text-xl font-bold">⚙️ Admin</span>
-          <span className="text-sm opacity-70">World Cup 2026 Pool</span>
+          <span className="text-sm opacity-70">World Cup 2026 Prediction</span>
         </div>
         <div className="flex items-center gap-4 text-sm">
           <Link to="/analytics" className="opacity-80 hover:opacity-100">📊 Analytics</Link>
