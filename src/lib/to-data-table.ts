@@ -10,9 +10,9 @@ import type { QueryTable } from "@microsoft/fabric-app-data";
 
 /**
  * Dictionary keyed by the original column name from the DAX query result.
- * Each value holds the `ColumnDef` metadata for that column.
+ * Each value holds display metadata — `name` is injected automatically from the column.
  */
-export type ColumnMetadataMap = Record<string, ColumnDef>;
+export type ColumnMetadataMap = Record<string, Omit<ColumnDef, 'name'>>;
 
 /**
  * Merges a raw SDK query table with static column metadata to produce
@@ -41,7 +41,8 @@ export function toDataTable(
     columnMetadata: ColumnMetadataMap,
 ): DataTable {
     const columns: ColumnDef[] = queryTable.columns.map((col) => {
-        return columnMetadata[col.name] ?? { name: col.name };
+        const meta = columnMetadata[col.name];
+        return meta ? { name: col.name, ...meta } : { name: col.name };
     });
 
     return { columns, rows: queryTable.rows };

@@ -30,7 +30,7 @@ export async function getMatchResultsTable(): Promise<DataTable> {
     'kickoffUtc', 'winnerTeamCode', 'status',
   ]).execute();
 
-  const finished = (matches as Record<string, unknown>[])
+  const finished = (matches as unknown as Record<string, unknown>[])
     .filter(m => m.status === 'FINISHED')
     .sort((a, b) => new Date(b.kickoffUtc as string).getTime() - new Date(a.kickoffUtc as string).getTime());
 
@@ -64,7 +64,7 @@ export async function getLeaderboardTable(): Promise<DataTable> {
   ]);
 
   const byUser = new Map<string, { count: number; matches: Set<string> }>();
-  for (const p of predictions as Record<string, unknown>[]) {
+  for (const p of predictions as unknown as Record<string, unknown>[]) {
     const uid = p.user_id as string;
     if (!byUser.has(uid)) byUser.set(uid, { count: 0, matches: new Set() });
     const u = byUser.get(uid)!;
@@ -73,7 +73,7 @@ export async function getLeaderboardTable(): Promise<DataTable> {
   }
 
   const profileMap = new Map(
-    (profiles as Record<string, unknown>[]).map(p => [p.user_id as string, p])
+    (profiles as unknown as Record<string, unknown>[]).map(p => [p.user_id as string, p])
   );
 
   const rows = [...byUser.entries()]
@@ -109,7 +109,7 @@ export async function getUpcomingMatchesList(): Promise<UpcomingMatchItem[]> {
   const matches = await client.data.Match.select([
     'homeTeamName', 'awayTeamName', 'homeTeamCode', 'awayTeamCode',
     'kickoffUtc', 'stage', 'status',
-  ]).execute() as Record<string, unknown>[];
+  ]).execute() as unknown as Record<string, unknown>[];
 
   return matches
     .filter(m => m.status !== 'FINISHED')
