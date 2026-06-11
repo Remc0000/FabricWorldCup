@@ -3,12 +3,12 @@ profiles:
   default:
     semanticModels:
       worldcup:
-        workspaceId: "\"
-        itemId: "\"
+        workspaceId: ""
+        itemId: ""
     notebooks:
       sync_matches:
-        workspaceId: "\"
-        itemId: "\"
+        workspaceId: ""
+        itemId: ""
       simulate_data:
-        workspaceId: "\"
-        itemId: "\"
+        workspaceId: ""
+        itemId: ""

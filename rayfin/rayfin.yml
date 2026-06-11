@@ -1,7 +1,7 @@
 id: worldcup-pool
 name: World Cup 2026 Pool
 version: 1.0.0
-workspace: "\"
+workspace: "World Cup 2026"
 services:
   auth:
     enabled: true
@@ -21,3 +21,4 @@ services:
     indexDocument: index.html
   functions:
     enabled: false
+

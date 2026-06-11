@@ -9,7 +9,7 @@
 # =============================================================================
 
 $ErrorActionPreference = "Stop"
-$root = $PSScriptRoot
+$root = Split-Path $PSScriptRoot -Parent
 
 Write-Host @"
 
@@ -43,12 +43,12 @@ Write-Host "  ✅ Logged in as: $azUser" -ForegroundColor Green
 
 # Verify rayfin login
 Write-Host "  🔐 Checking rayfin login..." -ForegroundColor Yellow
-$rayfinWhoami = rayfin whoami 2>&1
+$rayfinStatus = npx rayfin login status 2>&1
 if ($LASTEXITCODE -ne 0) {
     Write-Host "  ❌ Not logged in to Rayfin. Please run: rayfin login" -ForegroundColor Red
     exit 1
 }
-Write-Host "  ✅ Rayfin: $rayfinWhoami" -ForegroundColor Green
+Write-Host "  ✅ Rayfin: $rayfinStatus" -ForegroundColor Green
 
 # Step 2: Deploy app
 Write-Host ""
