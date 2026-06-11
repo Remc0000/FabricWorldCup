@@ -76,7 +76,7 @@ $insertStatements = $allUsers | ForEach-Object {
     $email = if ($_.mail) { $_.mail } else { $_.userPrincipalName }
     $email = $email.ToLower()
     $name  = $_.displayName -replace "'", "''"
-    $nationality = $countryToCode[$_.country] ?? "USA"
+    $nationality = if ($_.country -and $countryToCode.ContainsKey($_.country)) { $countryToCode[$_.country] } else { "USA" }
     $id    = [System.Guid]::NewGuid().ToString()
 
     "IF NOT EXISTS (SELECT 1 FROM [dbo].[UserProfiles] WHERE [user_id] = '$email')
