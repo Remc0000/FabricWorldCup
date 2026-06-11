@@ -1,0 +1,23 @@
+id: worldcup-pool
+name: World Cup 2026 Pool
+version: 1.0.0
+workspace: "\"
+services:
+  auth:
+    enabled: true
+    fabric:
+      enabled: true
+    allowedRedirectUris:
+      - http://localhost:5173
+  data:
+    enabled: true
+    dialect: mssql
+  storage:
+    enabled: false
+  staticHosting:
+    enabled: true
+    folder: dist
+    buildCommand: npm run build:fabric
+    indexDocument: index.html
+  functions:
+    enabled: false

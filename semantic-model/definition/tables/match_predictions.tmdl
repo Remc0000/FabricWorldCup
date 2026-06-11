@@ -1,0 +1,34 @@
+table match_predictions
+
+	measure 'Prediction Count' = COUNTROWS(match_predictions)
+		formatString: #,##0
+
+	measure 'Unique Predictors' = DISTINCTCOUNT(match_predictions[user_id])
+		formatString: #,##0
+
+	column id
+		dataType: string
+		sourceColumn: id
+		isHidden
+		summarizeBy: none
+
+	column user_id
+		dataType: string
+		sourceColumn: user_id
+		isHidden
+		summarizeBy: none
+
+	column match_id
+		dataType: string
+		sourceColumn: match_id
+		isHidden
+		summarizeBy: none
+
+	partition match_predictions = m
+		mode: directQuery
+		source =
+			let
+				Source = worldcup_pool,
+				MatchPrediction = Source{[Schema="dbo",Item="MatchPrediction"]}[Data]
+			in
+				MatchPrediction

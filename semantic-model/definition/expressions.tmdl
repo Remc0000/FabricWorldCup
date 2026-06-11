@@ -1,0 +1,5 @@
+expression worldcup_pool =
+	let
+		Source = Sql.Database("i3okznlkvxhe3fmmjrbk74yk3i-xpbqi64f2fne3jciclwuerzu4q.database.fabric.microsoft.com", "worldcup-pool-8162d106-973c-4402-8e11-7fb4ab9c4fd1")
+	in
+		Source

@@ -1,0 +1,13 @@
+EVALUATE
+SELECTCOLUMNS (
+    FILTER ( matches, matches[status] IN { "SCHEDULED", "TIMED", "IN_PLAY", "PAUSED" } ),
+    "stage", matches[stage],
+    "matchday", matches[matchday],
+    "home_team_name", matches[home_team_name],
+    "away_team_name", matches[away_team_name],
+    "home_team_code", matches[home_team_code],
+    "away_team_code", matches[away_team_code],
+    "kickoff_utc", matches[kickoff_utc],
+    "status", matches[status]
+)
+ORDER BY [kickoff_utc] ASC

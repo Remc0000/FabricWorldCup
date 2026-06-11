@@ -1,0 +1,12 @@
+EVALUATE
+ADDCOLUMNS (
+    SUMMARIZE (
+        match_predictions,
+        match_predictions[user_id],
+        user_profiles_public[display_name],
+        user_profiles_public[nationality]
+    ),
+    "prediction_count", [Prediction Count],
+    "unique_matches", DISTINCTCOUNT ( match_predictions[match_id] )
+)
+ORDER BY [prediction_count] DESC

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "mark": { "type": "bar", "cornerRadiusTopLeft": 4, "cornerRadiusTopRight": 4 },
+  "encoding": {
+    "x": {
+      "field": "prediction_count",
+      "type": "quantitative",
+      "title": "Predictions Made"
+    },
+    "y": {
+      "field": "display_name",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "User",
+      "axis": { "labelLimit": 120 }
+    },
+    "color": {
+      "field": "nationality",
+      "type": "nominal",
+      "legend": { "title": "Country" },
+      "scale": { "scheme": "category10" }
+    },
+    "tooltip": [
+      { "field": "display_name", "title": "User" },
+      { "field": "nationality", "title": "Nationality" },
+      { "field": "prediction_count", "title": "Predictions" },
+      { "field": "unique_matches", "title": "Unique Matches" }
+    ]
+  }
+}

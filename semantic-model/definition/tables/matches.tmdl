@@ -1,0 +1,74 @@
+table matches
+
+	measure 'Total Matches' = COUNTROWS(matches)
+		formatString: #,##0
+
+	measure 'Finished Matches' = COUNTROWS(FILTER(matches, matches[status] = "FINISHED"))
+		formatString: #,##0
+
+	column id
+		dataType: string
+		sourceColumn: id
+		isHidden
+		summarizeBy: none
+
+	column stage
+		dataType: string
+		sourceColumn: stage
+		summarizeBy: none
+
+	column matchday
+		dataType: int64
+		sourceColumn: matchday
+
+	column home_team_name
+		dataType: string
+		sourceColumn: homeTeamName
+		summarizeBy: none
+
+	column away_team_name
+		dataType: string
+		sourceColumn: awayTeamName
+		summarizeBy: none
+
+	column home_team_code
+		dataType: string
+		sourceColumn: homeTeamCode
+		summarizeBy: none
+
+	column away_team_code
+		dataType: string
+		sourceColumn: awayTeamCode
+		summarizeBy: none
+
+	column kickoff_utc
+		dataType: dateTime
+		sourceColumn: kickoffUtc
+		summarizeBy: none
+
+	column status
+		dataType: string
+		sourceColumn: status
+		summarizeBy: none
+
+	column home_score
+		dataType: int64
+		sourceColumn: homeScore
+
+	column away_score
+		dataType: int64
+		sourceColumn: awayScore
+
+	column winner_team_code
+		dataType: string
+		sourceColumn: winnerTeamCode
+		summarizeBy: none
+
+	partition matches = m
+		mode: directQuery
+		source =
+			let
+				Source = worldcup_pool,
+				Match = Source{[Schema="dbo",Item="Match"]}[Data]
+			in
+				Match

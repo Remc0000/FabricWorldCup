@@ -1,0 +1,7 @@
+EVALUATE
+ROW (
+    "total_matches", [Total Matches],
+    "finished_matches", [Finished Matches],
+    "total_predictions", [Prediction Count],
+    "unique_predictors", [Unique Predictors]
+)

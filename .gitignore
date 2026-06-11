@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+dist/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Rayfin generated / deployment state
+rayfin/.temp/
+rayfin/.deployments.json
+rayfin/rayfin.yml.bak
+
+# Fabric deploy state (per-deployment, not for commit)
+deploy/.workspace-id.txt
+deploy/.notebook-ids.json
+deploy/config.local.ps1
+
+# Build artifacts
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db

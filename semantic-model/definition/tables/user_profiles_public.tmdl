@@ -1,0 +1,26 @@
+table user_profiles_public
+
+	column user_id
+		dataType: string
+		sourceColumn: user_id
+		isHidden
+		summarizeBy: none
+
+	column display_name
+		dataType: string
+		sourceColumn: displayName
+		summarizeBy: none
+
+	column nationality
+		dataType: string
+		sourceColumn: nationality
+		summarizeBy: none
+
+	partition user_profiles_public = m
+		mode: directQuery
+		source =
+			let
+				Source = worldcup_pool,
+				UserProfile = Source{[Schema="dbo",Item="UserProfile"]}[Data]
+			in
+				UserProfile

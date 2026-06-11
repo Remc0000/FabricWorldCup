@@ -1,0 +1,6 @@
+model Model
+	defaultPowerBIDataSourceVersion: powerBI_V3
+
+ref table matches
+ref table match_predictions
+ref table user_profiles_public

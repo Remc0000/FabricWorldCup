@@ -1,0 +1,14 @@
+activeProfile: default
+profiles:
+  default:
+    semanticModels:
+      worldcup:
+        workspaceId: "\"
+        itemId: "\"
+    notebooks:
+      sync_matches:
+        workspaceId: "\"
+        itemId: "\"
+      simulate_data:
+        workspaceId: "\"
+        itemId: "\"

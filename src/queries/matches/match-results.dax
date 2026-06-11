@@ -1,0 +1,15 @@
+EVALUATE
+SELECTCOLUMNS (
+    FILTER ( matches, matches[status] = "FINISHED" ),
+    "stage", matches[stage],
+    "matchday", matches[matchday],
+    "home_team_name", matches[home_team_name],
+    "away_team_name", matches[away_team_name],
+    "home_team_code", matches[home_team_code],
+    "away_team_code", matches[away_team_code],
+    "home_score", matches[home_score],
+    "away_score", matches[away_score],
+    "kickoff_utc", matches[kickoff_utc],
+    "winner_team_code", matches[winner_team_code]
+)
+ORDER BY [kickoff_utc] DESC

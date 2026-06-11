@@ -1,0 +1,7 @@
+relationship 'match_predictions-matches'
+	fromColumn: match_predictions.match_id
+	toColumn: matches.id
+
+relationship 'match_predictions-user_profiles'
+	fromColumn: match_predictions.user_id
+	toColumn: user_profiles_public.user_id

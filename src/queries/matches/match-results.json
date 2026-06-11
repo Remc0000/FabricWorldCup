@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "mark": { "type": "bar", "cornerRadiusTopLeft": 4, "cornerRadiusTopRight": 4 },
+  "encoding": {
+    "x": {
+      "field": "home_team_code",
+      "type": "nominal",
+      "title": "Home Team",
+      "axis": { "labelAngle": -30 }
+    },
+    "y": {
+      "field": "home_score",
+      "type": "quantitative",
+      "title": "Goals",
+      "stack": null
+    },
+    "color": {
+      "value": "#FF6600"
+    },
+    "tooltip": [
+      { "field": "home_team_name", "title": "Home" },
+      { "field": "away_team_name", "title": "Away" },
+      { "field": "home_score", "title": "Home Goals" },
+      { "field": "away_score", "title": "Away Goals" },
+      { "field": "stage", "title": "Stage" }
+    ]
+  }
+}
